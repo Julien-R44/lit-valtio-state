@@ -16,12 +16,7 @@ First you have to define a state, eg. in `stores/app.ts` :
 ```ts
 import { defineState } from '@julr/lit-valtio-state'
 
-interface IAppState {
-  count: number,
-  name: string
-}
-
-export const AppState = defineState<IAppState>({
+export const AppState = defineState({
   count: 0,
   name: 'John Doe'
 })
