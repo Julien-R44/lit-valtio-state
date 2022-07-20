@@ -16,7 +16,7 @@ First you have to define a state, eg. in `stores/app.ts` :
 ```ts
 import { defineState } from '@julr/lit-valtio-state'
 
-export const AppState = defineState({
+export const appState = defineState({
   count: 0,
   name: 'John Doe'
 })
@@ -26,12 +26,12 @@ Then you can simply use it in your components as follows :
 ```ts
 import { LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
-import { AppState } from '@/stores/app'
+import { appState } from '@/stores/app'
 import { useState } from '@julr/lit-valtio-state'
 
 @customElement('my-lit-component')
 export class MyLitComponent extends LitElement {
-  private state = useState(this, AppState)
+  private state = useState(this, appState)
 
   render() {
     return html`
