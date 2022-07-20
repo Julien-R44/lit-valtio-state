@@ -1,0 +1,108 @@
+{
+  "name": "@julr/lit-valtio-state",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@7.0.1",
+  "description": "🏪 A simple state management library for Lit components.",
+  "keywords": [
+    "lit",
+    "state-management",
+    "store",
+    "valtio",
+    "web-components",
+    "state management"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "homepage": "https://github.com/Julien-R44/lit-valtio-state#readme",
+  "bugs": {
+    "url": "https://github.com/Julien-R44/lit-valtio-state/issues"
+  },
+  "license": "MIT",
+  "author": "Julien Ripouteau <julien@ripouteau.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julien-R44/lit-valtio-state.git"
+  },
+  "funding": "https://github.com/sponsors/Julien-R44",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "start": "node --loader=ts-node/esm src/index.ts",
+    "test": "node --loader=ts-node/esm bin/test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "lit": "^2.2.7"
+  },
+  "dependencies": {
+    "valtio": "^1.6.3"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.17.2",
+    "@japa/assert": "^1.3.4",
+    "@japa/runner": "^2.0.9",
+    "@japa/spec-reporter": "^1.1.12",
+    "@julr/eslint-config": "^0.3.1",
+    "@types/node": "^18.0.6",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.20.0",
+    "lit": "^2.2.7",
+    "pnpm": "^7.5.2",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4",
+    "unbuild": "^0.7.4"
+  },
+  "eslintConfig": {
+    "extends": "@julr",
+    "rules": {
+      "n/no-unsupported-features/es-syntax": "off"
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "openapi-types",
+        "react"
+      ]
+    }
+  }
+}
