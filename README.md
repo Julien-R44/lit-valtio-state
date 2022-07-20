@@ -32,6 +32,7 @@ Then you can simply use it in your components as follows :
 import { LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { AppState } from '@/stores/app'
+import { useState } from '@julr/lit-valtio-state'
 
 @customElement('my-lit-component')
 export class MyLitComponent extends LitElement {
@@ -42,7 +43,7 @@ export class MyLitComponent extends LitElement {
       <div>
         <h1>${this.state.name}</h1>
         <p>${this.state.count}</p>
-        <button @click=${() => this.state.count++}></button>
+        <button @click=${() => this.state.count++}>Increment</button>
       </div>
     `
   }
