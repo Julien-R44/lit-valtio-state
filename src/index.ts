@@ -13,17 +13,24 @@ import type { ReactiveController, ReactiveControllerHost } from 'lit'
  */
 class StateController<State extends Record<string, any>> implements ReactiveController {
   private host: ReactiveControllerHost
+  private unsubscribe: () => void
+
   public state: State
 
   constructor(host: ReactiveControllerHost, state: State) {
     this.host = host
     this.state = state
 
-    subscribe(state, () => this.host.requestUpdate())
+    this.unsubscribe = subscribe(state, () => this.host.requestUpdate())
+    this.host.addController(this)
   }
 
   hostConnected() {
     this.host.requestUpdate()
+  }
+
+  hostDisconnected() {
+    this.unsubscribe()
   }
 }
 
