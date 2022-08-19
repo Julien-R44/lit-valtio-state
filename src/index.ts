@@ -35,7 +35,7 @@ class StateController<State extends Record<string, any>> implements ReactiveCont
 }
 
 /**
- * Syntaxic sugar for only returning the state of the StateController
+ * Syntactic sugar for only returning the state of the StateController
  */
 function useState<State extends Record<string, any>>(host: ReactiveControllerHost, state: State) {
   return new StateController(host, state).state

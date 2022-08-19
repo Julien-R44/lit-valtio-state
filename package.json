@@ -4,6 +4,17 @@
   "version": "0.0.2",
   "packageManager": "pnpm@7.0.1",
   "description": "🏪 A simple state management library for Lit components.",
+  "author": "Julien Ripouteau <julien@ripouteau.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Julien-R44",
+  "homepage": "https://github.com/Julien-R44/lit-valtio-state#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julien-R44/lit-valtio-state.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Julien-R44/lit-valtio-state/issues"
+  },
   "keywords": [
     "lit",
     "state-management",
@@ -12,30 +23,16 @@
     "web-components",
     "state management"
   ],
-  "engines": {
-    "node": ">=16"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
   },
-  "homepage": "https://github.com/Julien-R44/lit-valtio-state#readme",
-  "bugs": {
-    "url": "https://github.com/Julien-R44/lit-valtio-state/issues"
-  },
-  "license": "MIT",
-  "author": "Julien Ripouteau <julien@ripouteau.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Julien-R44/lit-valtio-state.git"
-  },
-  "funding": "https://github.com/sponsors/Julien-R44",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "typesVersions": {
     "*": {
       "*": [
@@ -47,6 +44,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -57,8 +57,8 @@
     "format": "prettier --write .",
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
-    "start": "node --loader=ts-node/esm src/index.ts",
-    "test": "node --loader=ts-node/esm bin/test.ts",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -76,13 +76,23 @@
     "@types/node": "^18.0.6",
     "bumpp": "^8.2.1",
     "eslint": "^8.20.0",
+    "happy-dom": "^6.0.4",
     "lit": "^2.2.7",
     "pnpm": "^7.5.2",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4",
-    "unbuild": "^0.7.4"
+    "unbuild": "^0.7.4",
+    "vitest": "^0.22.1"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "openapi-types",
+        "react"
+      ]
+    }
   },
   "eslintConfig": {
     "extends": "@julr",
@@ -99,13 +109,5 @@
     "bracketSpacing": true,
     "arrowParens": "always",
     "printWidth": 100
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "openapi-types",
-        "react"
-      ]
-    }
   }
 }
