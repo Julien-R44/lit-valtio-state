@@ -1,7 +1,8 @@
-# lit-valtio-state
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8337858/188330463-526c1448-9405-423c-b3c6-af7927723ca9.png">
+</p>
 
 🏪 A simple state management library for [Lit](https://lit.dev), built on top of [valtio](https://valtio.pmnd.rs/).
-
 
 ## Installation
   
