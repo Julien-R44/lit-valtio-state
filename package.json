@@ -2,7 +2,7 @@
   "name": "@julr/lit-valtio-state",
   "type": "module",
   "version": "1.0.1",
-  "packageManager": "pnpm@7.0.1",
+  "packageManager": "pnpm@8.3.1",
   "description": "🏪 A simple state management library for Lit components.",
   "author": "Julien Ripouteau <julien@ripouteau.com>",
   "license": "MIT",
