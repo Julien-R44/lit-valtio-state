@@ -25,10 +25,10 @@ export const appState = defineState({
 
 Then you can simply use it in your components as follows : 
 ```ts
-import { LitElement } from 'lit'
-import { customElement, state } from 'lit/decorators.js'
-import { appState } from '@/stores/app'
+import { LitElement, html } from 'lit'
+import { customElement } from 'lit/decorators.js'
 import { useState } from '@julr/lit-valtio-state'
+import { appState } from '@/stores/app'
 
 @customElement('my-lit-component')
 export class MyLitComponent extends LitElement {
